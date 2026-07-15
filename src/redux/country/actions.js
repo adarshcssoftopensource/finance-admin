@@ -1,0 +1,8 @@
+const actions = {
+  SET_STATE: 'country/SET_STATE',
+  FETCH_COUNTRIES: 'country/FETCH_COUNTRIES',
+  FETCH_COUNTRY_FEES_BY_COUNTRY_ID: 'country/FETCH_COUNTRY_FEES_BY_COUNTRY_ID',
+  FETCH_ONBOARDING_SCHEMA: 'country/FETCH_ONBOARDING_SCHEMA',
+}
+
+export default actions

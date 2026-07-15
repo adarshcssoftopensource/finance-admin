@@ -1,0 +1,57 @@
+# This is a sample build configuration for JavaScript.
+# Check our guides at https://confluence.atlassian.com/x/14UWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment
+image: node:22.11.0
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Build & deploy to dev
+          size: 4x
+          caches:
+            - node
+          deployment: Dev
+          script:
+            # Yarn setup
+            - corepack enable
+            - corepack prepare yarn@4.6.0 --activate
+            - yarn set version 4.6.0
+            - yarn config set nodeLinker node-modules
+            # Install and build
+            - yarn install --immutable
+            - yarn run build:prod
+            # ... rest of your deployment steps ...
+            - pipe: atlassian/firebase-deploy:5.1.1
+              variables:
+                KEY_FILE: $KEY_FILE
+# PROJECT_ID: '<string>' # Optional.
+                PROJECT_ID: 'default'
+                MESSAGE: 'Deploying to dev env'
+                EXTRA_ARGS: '--only hosting:dev-admin-peymynt' # Optional.
+                DEBUG: 'true' # Optional.
+    payyit:
+      - step:
+          name: Build & deploy Finance Prod
+          deployment: Payyit
+          size: 4x
+          caches:
+            - node
+          script:
+            - corepack enable
+            - corepack prepare yarn@4.6.0 --activate
+            - yarn install
+            - yarn run build
+            - pipe: atlassian/firebase-deploy:5.1.1
+              variables:
+                KEY_FILE: $KEY_FILE_PAYYIT
+                PROJECT_ID: 'payyit' # Optional.
+                MESSAGE: 'Deploying to prod env'
+                EXTRA_ARGS: '--project finance --only hosting:prod-admin-finance' # Optional.
+                DEBUG: 'false' # Optional.
+definitions:
+  services:
+    docker:
+      memory: 2048

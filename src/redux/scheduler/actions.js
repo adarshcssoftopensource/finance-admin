@@ -1,0 +1,10 @@
+const actions = {
+  SET_STATE: 'scheduler/SET_STATE',
+  FETCH_ALL_SCHEDULERS: 'scheduler/FETCH_ALL_SCHEDULERS',
+  ADD_SCHEDULER: 'scheduler/ADD_SCHEDULER',
+  EDIT_SCHEDULER: 'scheduler/EDIT_SCHEDULER',
+  START_SCHEDULER_LOADING: 'scheduler/START_SCHEDULER_LOADING',
+  STOP_SCHEDULER_LOADING: 'scheduler/STOP_SCHEDULER_LOADING',
+}
+
+export default actions

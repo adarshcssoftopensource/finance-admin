@@ -1,0 +1,9 @@
+const actions = {
+  SET_STATE: 'invoices/SET_STATE',
+  FETCH_ALL_BAD_INVOICES: 'invoices/FETCH_ALL_BAD_INVOICES',
+  FETCH_ALL_INVOICES: 'invoices/FETCH_ALL_INVOICES',
+  FETCH_INVOICE_DETAILS: 'invoices/FETCH_INVOICE_DETAILS',
+  FETCH_INVOICE_TIMELINE: 'invoices/FETCH_INVOICE_TIMELINE',
+}
+
+export default actions

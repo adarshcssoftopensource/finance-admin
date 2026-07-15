@@ -1,0 +1,8 @@
+const actions = {
+  SET_STATE: 'checkouts/SET_STATE',
+  FETCH_ALL_CHECKOUTS: 'checkouts/FETCH_ALL_CHECKOUTS',
+  FETCH_CHECKOUT_TIMELINE: 'checkouts/FETCH_CHECKOUT_TIMELINE',
+  FETCH_CHECKOUT_DETAILS: 'checkouts/FETCH_CHECKOUT_DETAILS',
+}
+
+export default actions

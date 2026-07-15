@@ -1,0 +1,8 @@
+const actions = {
+  SET_STATE: 'payoutChangeRequest/SET_STATE',
+  FETCH_PAYOUT_CHANGE_REQUESTS: 'payoutChangeRequest/FETCH_PAYOUT_CHANGE_REQUESTS',
+  FETCH_PAYOUT_CHANGE_REQUEST: 'payoutChangeRequest/FETCH_PAYOUT_CHANGE_REQUEST',
+  UPDATE_PAYOUT_CHANGE_REQUEST: 'payoutChangeRequest/UPDATE_PAYOUT_CHANGE_REQUEST',
+}
+
+export default actions

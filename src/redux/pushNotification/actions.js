@@ -1,0 +1,9 @@
+const actions = {
+  SET_STATE: 'pushNotification/SET_STATE',
+  FETCH_PUSH_NOTIFICATIONS: 'pushNotification/FETCH_PUSH_NOTIFICATIONS',
+  FETCH_SINGLE_PUSH_NOTIFICATION: 'pushNotification/FETCH_SINGLE_PUSH_NOTIFICATION',
+  SEND_PUSH_NOTIFICATION: 'pushNotification/SEND_PUSH_NOTIFICATION',
+  ADD_PUSH_NOTIFICATION: 'pushNotification/ADD_PUSH_NOTIFICATION',
+}
+
+export default actions

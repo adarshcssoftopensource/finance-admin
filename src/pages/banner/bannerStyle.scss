@@ -1,0 +1,26 @@
+.formSwitchStyle {
+  .ant-switch {
+    background-color: #bfbfbf !important;
+  }
+  .ant-switch-checked {
+    background-color: #4b7cf3 !important;
+  }
+}
+
+.banner_form_wrapper {
+  .ant-spin-dot-item {
+    background-color: #e4e9f0;
+  }
+}
+
+.reactQuillWrapper {
+  .ql-editor {
+    height: 30vh;
+  }
+  .ql-toolbar {
+    border: 1px solid #e4e9f0;
+  }
+  .ql-container {
+    border: 1px solid #e4e9f0;
+  }
+}

@@ -1,0 +1,83 @@
+@import 'components/mixins.scss';
+
+.loaderWrapper {
+  position: relative;
+  min-height: 100px;
+  width: 100%;
+}
+
+.fullScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.loaderOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.loaderContainer {
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.doubleBounce1,
+.doubleBounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: $blue;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.doubleBounce2 {
+  animation-delay: -1s;
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.tip {
+  margin-top: 10px;
+  font-weight: 500;
+  color: $blue;
+  font-size: 14px;
+}
+
+// dark theme
+[data-kit-theme='dark'] {
+  .loaderOverlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}

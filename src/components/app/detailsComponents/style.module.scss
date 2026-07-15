@@ -1,0 +1,52 @@
+@import 'components/mixins.scss';
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-bottom: rem(-30);
+}
+
+.item {
+  width: 20%;
+  margin-bottom: rem(25);
+  &.md {
+    width: 25%;
+  }
+}
+
+.custom_code_collapse {
+  position: relative;
+  .code_part {
+    max-height: 100%;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+  &.hide_code {
+    .code_part {
+      max-height: 310px;
+    }
+  }
+  .collap_button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 60px 40px 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 1%,
+      rgba(255, 255, 255, 1) 65%,
+      rgba(255, 255, 255, 1) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+    .ac_button {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 3px 20px 0;
+      font-size: 18px;
+      background-color: #fff;
+    }
+  }
+}

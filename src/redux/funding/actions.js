@@ -1,0 +1,7 @@
+const actions = {
+  SET_STATE: 'fundingLinks/SET_STATE',
+  FETCH_ALL_FUNDING_LINKS: 'fundingLinks/FETCH_ALL_FUNDING_LINKS',
+  VERIFIED_UNVERIFIED_FUNDING_BUSINESS: 'fundingLinks/VERIFIED_UNVERIFIED_FUNDING_BUSINESS',
+}
+
+export default actions

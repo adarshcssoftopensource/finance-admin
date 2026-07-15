@@ -1,0 +1,12 @@
+const actions = {
+  SET_STATE: 'banner/SET_STATE',
+  FETCH_ALL_BANNER: 'banner/FETCH_ALL_BANNER',
+  FETCH_ALL_BANNER_TARGET: 'banner/FETCH_ALL_BANNER_TARGET',
+  ADD_BANNER: 'banner/ADD_BANNER',
+  FETCH_SINGLE_BANNER: 'banner/FETCH_BANNER',
+  EDIT_BANNER: 'banner/EDIT_BANNER',
+  DELETE_BANNER: 'banner/DELETE_BANNER',
+  UPDATE_BANNER: 'banner /UPDATE_BANNER',
+}
+
+export default actions

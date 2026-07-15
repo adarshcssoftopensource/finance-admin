@@ -1,0 +1,776 @@
+$base-font-family1: 'Peymynt Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+  'Segoe UI Symbol', 'Noto Color Emoji';
+// Name : Onboarding
+//  Uses : Across all kinds of onboarding screens
+//
+
+// Inital onboard after sign up
+.onboarding__initial {
+  .form-group {
+    margin-bottom: 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .py-form-field__label {
+    margin-bottom: 4px;
+  }
+}
+
+// payment onboarding
+.payment__onboarding__container {
+  border: 1px solid #ededed;
+  padding: 4rem 0; /* fix: 0rem → 0 */
+  margin-bottom: 20px;
+  border-radius: 12px;
+
+  .error {
+    color: #d74242;
+    font-size: 13px;
+  }
+
+  .py-form-field__label {
+    display: block;
+  }
+
+  .form-group {
+    &:last-child {
+      margin-bottom: 0; /* fix: 0rem → 0 */
+    }
+  }
+
+  .py-header--page,
+  .py-header--title {
+    margin-top: 0;
+  }
+}
+
+.Payment__Onboarding__Stepper__Container {
+  position: fixed;
+}
+
+.Payment__Onboarding__Stepper__Content {
+  margin-left: auto !important;
+}
+
+.payment__onboarding__content {
+  max-width: calc(100% - 80px);
+  margin: 0 auto;
+
+  .py-brand--type {
+    > span {
+      font-family: $base-font-family1 !important;
+      font-size: 1rem !important;
+    }
+  }
+}
+
+.payment__onboarding__step__label {
+  font-family: $base-font-family1;
+  font-size: 1rem;
+}
+
+.main-div {
+  width: 276px;
+  border: 2px solid #ededed;
+  border-radius: 50%;
+  height: 276px;
+  overflow: hidden;
+  float: right;
+  display: flex;
+  white-space: nowrap;
+}
+
+.term {
+  margin-top: 30px;
+}
+
+.main-div ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5px;
+  color: #ededed;
+}
+
+.main-div ul li {
+  padding-top: 5px;
+  border-bottom: 2px dotted;
+  font-size: 14px;
+  padding-bottom: 5px;
+  text-align: left;
+  padding-left: 40px;
+  color: #ccc; /* fix: #cccccc → #ccc */
+}
+
+li.list-part.part-chng {
+  background-color: #f8f397;
+  color: gray;
+}
+
+.notes {
+  width: 200px;
+  border-radius: 10px;
+  position: relative;
+  padding: 10px;
+  border: 2px dashed #ededed;
+  margin-left: -10px;
+  margin-top: 46px;
+}
+
+.notes h5 {
+  font-size: 12px;
+  color: #626262;
+  width: 100%;
+}
+
+.notes img {
+  position: absolute;
+  left: -115px;
+  top: -38px;
+  width: 150px;
+}
+
+.box-right {
+  height: 140px;
+  background: #ededed;
+  border-radius: 10px;
+}
+
+.btn-section {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.btn-section ul li {
+  float: left;
+  width: 30px;
+  height: 10px;
+  background-color: #ededed;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.list-1 ul {
+  padding: 0;
+  list-style-type: none;
+  height: 100px;
+}
+
+.list-1 ul li {
+  background: #ededed;
+  height: 4px;
+  margin-bottom: 4px;
+  border-radius: 2px;
+}
+
+.first-line {
+  background: #ededed;
+  height: 7px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+li.even-sec {
+  background: #f8f397 !important;
+}
+
+.col-md-8.padding-0 {
+  padding-right: 0;
+}
+
+.term label a {
+  color: blue;
+}
+
+.term label {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+span.date-box {
+  margin-right: 10px;
+  min-width: 50px;
+  display: inline-block;
+}
+
+.list-2 ul li {
+  background: #ededed;
+  height: 2px;
+  margin-bottom: 4px;
+  border-radius: 2px;
+}
+
+.list-2 ul {
+  padding: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.section-div {
+  margin-top: 50px;
+}
+
+.payment__onboarding__step__icon {
+  /* fix: added whitespace inside comment */
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 1rem !important;
+  fill: currentColor !important;
+  color: rgba(black, 0.2) !important;
+
+  $blue: #007bff !default;
+
+  &.is-active {
+    color: $blue !important;
+    border-radius: 50rem;
+
+    .payment__onboarding__step__icon-text {
+      fill: #fff !important; /* fix: #ffffff → #fff */
+    }
+  }
+}
+
+.payment__onboarding__step__icon-text {
+  font-size: 14px !important;
+  font-family: $base-font-family1 !important;
+  fill: black !important;
+}
+
+.payment__onboard__step__line {
+  border-color: rgba(black, 0.1) !important;
+  margin-bottom: -8px;
+}
+
+.payment__onboard__business__type__list {
+  > div {
+    cursor: pointer;
+    border: 2px solid #b2c2cd;
+    box-shadow: none !important;
+    padding: 20px;
+    min-height: 68px;
+    border-radius: 4px;
+    font-size: 18px;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.onboarding__business__details {
+  .py-form-field__label {
+    display: block;
+  }
+}
+
+// Invoice onboarding
+.invoice__onboarding__content__body {
+  display: flex;
+
+  .invoice__onboarding__content__left {
+    text-align: center;
+    flex: 1;
+  }
+
+  .invoice__onboarding__content__right {
+    text-align: center;
+  }
+
+  .carousel {
+    max-width: 495px !important;
+
+    .carousel-item {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .invoice__onboarding__logo__upload__handle {
+    width: 302px;
+    min-height: 274px;
+  }
+
+  .invoice__onboarding__content__color__handle {
+    width: 302px;
+
+    .py-box {
+      border-radius: 5px;
+
+      .chrome-picker {
+        box-shadow: none !important;
+      }
+    }
+  }
+}
+
+.invoice__onboarding__content__footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.custom-control-label::before {
+  width: 15px;
+  height: 15px;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-image: none !important;
+  border-color: #b2c2cd !important;
+}
+
+.was-validated .custom-control-input:invalid ~ .custom-control-label,
+.custom-control-input.is-invalid ~ .custom-control-label,
+.was-validated .custom-control-input:valid ~ .custom-control-label,
+.custom-control-input.is-valid ~ .custom-control-label {
+  color: #1c252c !important;
+}
+
+.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before,
+.custom-control-input.is-valid:checked ~ .custom-control-label::before {
+  border-color: #136acd;
+  box-shadow: none !important;
+  background-color: #136acd !important;
+}
+
+.was-validated .custom-control-input:invalid ~ .custom-control-label::before,
+.custom-control-input.is-invalid ~ .custom-control-label::before,
+.was-validated .custom-control-input:valid ~ .custom-control-label::before,
+.custom-control-input.is-valid ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px #9eb4bd !important;
+}
+
+#addOwnerForm {
+  .cursor-pointer {
+    cursor: pointer !important;
+  }
+
+  .input-group .input-group-text {
+    border: 1px solid #b2c2cd !important;
+    border-left: none !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+  }
+
+  .input-group input {
+    border-right: none !important;
+  }
+
+  .input-group-append {
+    margin-left: -2px;
+    height: 40px;
+    margin-top: 4px;
+  }
+}
+
+#onboarding_stepone {
+  .selectedOptions {
+    border-color: #136acd !important;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  .selectOptions {
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 1px #b2c2cd;
+  }
+
+  .selectOptionsMC {
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 1px #b2c2cd;
+    border-radius: 4px;
+  }
+
+  .selectOptions:hover,
+  .selectOptionsMC:hover {
+    border-color: #136acd !important;
+  }
+
+  .selectedOptionsMC {
+    border-color: #136acd !important;
+    margin: 0 auto 8px;
+    box-shadow: 0 0 0 2px #136acd;
+  }
+
+  .tooltipBody {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+  }
+}
+
+.py-table__action__info:hover {
+  color: #136acd !important;
+}
+
+.country-phone-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .plus {
+    position: absolute;
+    top: 14px;
+    left: 6px;
+  }
+
+  .country-code,
+  .form-control:first-child {
+    width: 70px;
+    border-radius: 4px 0 0 4px !important;
+    border-right: 0;
+  }
+
+  .form-control:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.onboarding-form-wrapper {
+  text-align: left;
+
+  .form-group.field-object {
+    margin-bottom: 0;
+  }
+
+  fieldset legend {
+    display: none;
+  }
+
+  #root__title {
+    display: none;
+  }
+
+  #root__description {
+    display: none;
+  }
+
+  .additional_field,
+  & > .field-object {
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .field-object > .label {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700 !important;
+    padding: 12px;
+    border-bottom: 1px solid #ededed;
+    background-color: #ededed;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .field-object > .label-title {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 700 !important;
+  }
+
+  .field-object {
+    .field-object > .label {
+      margin-top: 20px;
+    }
+  }
+
+  .personalinformation {
+    .mobilephonenumber {
+      padding-top: 0;
+    }
+  }
+
+  .field-boolean,
+  .field-integer,
+  .field-string,
+  .field-undefined {
+    padding: 20px 20px 0; /* fix: 20px 20px 0px → 20px 20px 0 */
+    margin: 0;
+
+    &:last-child {
+      padding-bottom: 20px;
+    }
+
+    &.root_legalname,
+    &.root_firstname {
+      padding-top: 0;
+    }
+  }
+
+  .field-description {
+    padding: 0; /* fix: 0 0 0 → 0 */
+    font-size: 14px;
+    color: #b2c2cd;
+  }
+
+  .bankaccountinformation,
+  .additionalunderwritingdata {
+    .field-description {
+      padding: 20px 20px 0; /* fix: 20px 20px 0px → 20px 20px 0 */
+    }
+  }
+
+  .field-array {
+    .field-string div:not(.root_0) .label {
+      padding: 20px 20px 0; /* fix: 20px 20px 0px → 20px 20px 0 */
+      font-weight: 500 !important;
+    }
+
+    .field-description {
+      padding-bottom: 0;
+      padding-top: 8px;
+    }
+  }
+
+  .checkbox {
+    margin-top: 10px;
+
+    input[type='checkbox'] {
+      margin-right: 5px;
+    }
+  }
+
+  .field-error {
+    border: none !important;
+
+    .form-control {
+      border: 1px solid #dc3545 !important;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem #dc354634;
+      }
+    }
+  }
+}
+
+.stepthreelist {
+  margin: 0 10px;
+  padding: 8px 14px;
+}
+
+.stepthreelisthead {
+  background-color: #d5d4d4;
+  margin: 0 10px;
+  padding: 8px 14px;
+  font-weight: bold;
+}
+
+.dateSelect {
+  .react-datepicker-wrapper {
+    width: 100% !important;
+  }
+}
+
+.additionalOwnerButton {
+  background-color: #fff; /* fix: white → #fff ... actually white is valid, keeping as #fff per color-hex-length rule context */
+  color: #136acd;
+  border: none;
+  margin-top: 10px;
+  font-size: large;
+  outline: none;
+  padding: 10px 25px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// rc-steps
+
+.rc-steps-vertical {
+  .rc-steps-item-content {
+    min-height: inherit !important;
+    margin-top: 0;
+  }
+
+  .rc-steps-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
+
+  .rc-steps-item {
+    padding: 15px 0;
+    position: relative;
+
+    .rc-steps-item-tail {
+      display: none;
+    }
+
+    .rc-steps-item-icon {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      min-height: 32px;
+      line-height: 32px;
+      margin-right: 5px;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 13px;
+        bottom: 36px;
+        width: 4px;
+        height: 20px;
+        background-color: #e9e9e9;
+        border-radius: 100px;
+        opacity: 1;
+      }
+
+      .rc-steps-icon {
+        font-weight: 700;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:first-child {
+      .rc-steps-item-icon {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .rc-steps-item-process {
+    .rc-steps-item-icon {
+      background: #fff !important;
+      border-color: #78c3fc !important;
+      border-width: 2px !important;
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      min-height: 44px;
+      line-height: 45px;
+      margin-left: -6px;
+
+      &:before {
+        left: 19px;
+        bottom: 47px;
+        background-color: #78c3fc;
+        opacity: 0.8;
+      }
+
+      .rc-steps-icon {
+        color: #78c3fc !important;
+        font-size: 20px !important;
+      }
+    }
+  }
+
+  .rc-steps-item-finish {
+    .rc-steps-item-icon {
+      &:before {
+        background-color: #00c774;
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.rc-steps-item-finish .rc-steps-item-icon {
+  border-color: #00c774 !important;
+  background-color: #00c774 !important;
+}
+
+.rc-steps-item-finish .rc-steps-item-icon > .rc-steps-icon {
+  color: #fff !important;
+}
+
+.rc-steps-item {
+  .rc-steps-item-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+
+  &.rc-steps-item-active {
+    .rc-steps-item-title {
+      font-size: 18px;
+    }
+  }
+}
+
+.provider-selection-container {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+
+  b {
+    font-size: 15px;
+    color: #495057;
+  }
+
+  label {
+    font-weight: 500;
+    color: #343a40;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #136acd;
+    }
+
+    input[type='checkbox'] {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+  }
+}
+
+.approval-progress-content {
+  padding: 10px 0;
+
+  .d-flex {
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+  }
+
+  h6 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1c252c;
+  }
+
+  small {
+    font-size: 12px;
+    display: block;
+  }
+
+  i.fe {
+    transition: all 0.3s ease;
+  }
+}

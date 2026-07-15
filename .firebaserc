@@ -1,0 +1,28 @@
+{
+  "projects": {
+    "default": "peymynt-financia-1546589526060",
+    "finance": "finance-inc"
+  },
+  "targets": {
+    "peymynt-financia-1546589526060": {
+      "hosting": {
+        "dev": [
+          "dev-admin-peymynt"
+        ],
+        "prod": [
+          "prod-admin-peymynt"
+        ]
+      }
+    },
+    "payyit-inc": {
+      "hosting": {
+        "dev": [
+          "dev-admin-payyit"
+        ],
+        "prod-admin-payyit": [
+          "admin-payyit"
+        ]
+      }
+    }
+  }
+}
