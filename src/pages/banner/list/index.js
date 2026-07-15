@@ -373,7 +373,7 @@ const Index = ({
             setRenderModalContent({ title: 'Add banner target', type: 'add' })
           }}
         >
-          Add Banner Targets
+          Add Banners Targets
         </Button>
       </div>
     )
