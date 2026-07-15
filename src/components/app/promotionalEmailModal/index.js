@@ -22,7 +22,7 @@ const Index = ({ visible, userDetails, onCancel }) => {
 
   useEffect(() => {
     form.setFieldsValue({ email: [userDetails.primaryEmail] })
-  }, [])
+  }, [form, userDetails.primaryEmail])
   const onSubmit = () => {
     form
       .validateFields()

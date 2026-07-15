@@ -11,7 +11,7 @@ const SubscriptionPlanDropDown = ({ plans: { plans }, dispatch, selectedValue, h
       type: 'plans/FETCH_ALL_PLANS',
       payload: {},
     })
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     if (plans && plans.data) {

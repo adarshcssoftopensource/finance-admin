@@ -33,8 +33,10 @@ const Index = ({
 
   useEffect(() => {
     if (!loading && openUploadModal) {
-      closeModal(false)
+      closeModal()
     }
+    // intentionally only react to loading finishing (upload complete)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading])
 
   const handleTableRender = (columns, tableData, isLoading) => {
@@ -70,6 +72,8 @@ const Index = ({
         }),
       },
     })
+    // mount-only fetch; tab changes handled by tabChange
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const changePreviewImage = (visible, src) => {
