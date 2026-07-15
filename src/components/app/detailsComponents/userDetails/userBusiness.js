@@ -39,7 +39,7 @@ const UserBusinesses = ({ dispatch, data, business: { businesses } }) => {
   }, [initFetch, current, pageSize])
 
   useEffect(() => {
-    if (businesses && businesses.data) {
+    if (businesses?.data?.meta) {
       const { meta } = businesses.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

@@ -117,7 +117,7 @@ const Index = ({ dispatch, subscriptions: { subscriptions }, router: { location 
   }, [initFetch, location.search, convertQrtString])
 
   useEffect(() => {
-    if (subscriptions && subscriptions.data) {
+    if (subscriptions?.data?.meta) {
       const { meta } = subscriptions.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

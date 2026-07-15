@@ -81,7 +81,7 @@ const Index = ({ dispatch, country: { countryFees, countries }, router: { locati
   }, [countryFees])
 
   useEffect(() => {
-    if (countries && countries.data) {
+    if (countries?.data?.meta) {
       const { meta } = countries.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)
@@ -112,7 +112,7 @@ const Index = ({ dispatch, country: { countryFees, countries }, router: { locati
       )
       setCountriesData(filterCountries)
       setTotal(filterCountries.length)
-    } else {
+    } else if (countries?.data?.meta) {
       const { meta } = countries.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

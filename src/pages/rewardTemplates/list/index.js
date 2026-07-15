@@ -72,7 +72,7 @@ const RewardTemplates = ({
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (rewardTemplates && rewardTemplates.data && rewardTemplates.data.meta) {
+    if (rewardTemplates?.data?.meta) {
       const { meta } = rewardTemplates.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

@@ -61,7 +61,7 @@ const Index = ({ dispatch, invoices: { badInvoices }, router: { location } }) =>
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (badInvoices && badInvoices.data) {
+    if (badInvoices?.data?.meta) {
       const { meta } = badInvoices.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

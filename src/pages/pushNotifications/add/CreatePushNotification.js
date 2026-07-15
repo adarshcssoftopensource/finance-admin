@@ -86,7 +86,7 @@ const CreatePushNotification = () => {
   }, [notificationData, form])
 
   useEffect(() => {
-    if (pushNotifications && pushNotifications.data) {
+    if (pushNotifications?.data?.meta) {
       const { meta } = pushNotifications.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

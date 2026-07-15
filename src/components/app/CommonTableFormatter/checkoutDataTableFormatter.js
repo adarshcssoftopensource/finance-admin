@@ -15,8 +15,10 @@ const getColumns = () => {
         <span className="d-flex align-items-center">
           <CopyToClipboard value={row?._id} textMessage="Checkout id copied to clipboard" />
           <span className="text-ele">
-            {row.business && (
-              <Link to={`/business/view/${row.business._id}`}>{row.business.organizationName}</Link>
+            {row?.business && (
+              <Link to={`/business/view/${row?.business?._id}`}>
+                {row?.business?.organizationName}
+              </Link>
             )}
           </span>
         </span>

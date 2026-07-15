@@ -13,17 +13,22 @@ export function* FETCH_ALL_CURRENCY() {
     },
   })
   const response = yield call(Services.fetchCurrency)
-  if (!response.error) {
+  const payloadData =
+    response && response.data && response.data.data !== undefined
+      ? response.data.data
+      : response && response.data
+
+  if (response && !response.error) {
     yield put({
       type: actions.SET_STATE,
       payload: {
         currency: {
           loading: false,
-          data: response.data,
+          data: payloadData,
         },
       },
     })
-  } else if (response.error) {
+  } else {
     yield put({
       type: actions.SET_STATE,
       payload: {
@@ -32,7 +37,7 @@ export function* FETCH_ALL_CURRENCY() {
         },
       },
     })
-    Notification.showError(response.message)
+    Notification.showError((response && response.message) || 'Failed to fetch currencies')
   }
 }
 

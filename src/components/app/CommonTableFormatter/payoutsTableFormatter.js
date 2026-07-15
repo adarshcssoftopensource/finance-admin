@@ -34,7 +34,7 @@ const getColumns = () => {
       key: 'timeline.startDate',
       render: row => (
         <span className="text-ele">
-          <span>{formateDate(row.timeline.startDate)}</span>
+          <span>{formateDate(row?.timeline?.startDate)}</span>
         </span>
       ),
       width: '20px',
@@ -45,7 +45,7 @@ const getColumns = () => {
       key: 'timeline.arrivalDate',
       render: row => (
         <span className="text-ele">
-          <span>{formateDate(row.timeline.arrivalDate)}</span>
+          <span>{formateDate(row?.timeline?.arrivalDate)}</span>
         </span>
       ),
       width: '20px',

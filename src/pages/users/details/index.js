@@ -13,7 +13,7 @@ const mapStateToProps = ({ allUsers, dispatch, router }) => ({
   router,
 })
 const UserDetailContainer = ({ dispatch, router: { location }, allUsers: { user, userNote } }) => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState(null)
   const [isVerificationRequested, setIsVerificationRequested] = useState(false)
   const [noteDescription, setNoteDescription] = useState(null)
 
@@ -43,7 +43,7 @@ const UserDetailContainer = ({ dispatch, router: { location }, allUsers: { user,
   const splitId = () => location.pathname.split('/users/')[1]
 
   useEffect(() => {
-    if (user && user.data) {
+    if (user?.data?.user) {
       setData(user.data.user)
       if (user?.data?.user?.identityVerification?.status === 'required') {
         setIsVerificationRequested(true)
@@ -96,7 +96,8 @@ const UserDetailContainer = ({ dispatch, router: { location }, allUsers: { user,
           Assume User
         </Button>
       </div>
-      {!data ? (
+      {/* eslint-disable-next-line no-underscore-dangle */}
+      {!data || !data._id || user?.loading ? (
         <div className="d-flex flex-wrap justify-content-center mt-5">
           <Spin />
         </div>

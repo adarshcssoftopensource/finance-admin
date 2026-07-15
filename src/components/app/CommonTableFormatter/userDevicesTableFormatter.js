@@ -9,15 +9,13 @@ const getColumns = (handleUpdateDevice, handleDeleteDevice) => {
       title: <span className="text-ele">User Id</span>,
       width: '30%',
       key: 'userId',
-      render: row => <span className="text-ele">{row.user && row.user.id}</span>,
+      render: row => <span className="text-ele">{row?.user?.id}</span>,
     },
     {
       title: <span className="text-ele">Username</span>,
       width: '20%',
       key: 'username',
-      render: row => (
-        <span className="text-ele text-capitalize">{row.user && row.user.username}</span>
-      ),
+      render: row => <span className="text-ele text-capitalize">{row?.user?.username}</span>,
     },
     {
       title: <span className="text-ele">Platform</span>,
@@ -45,9 +43,7 @@ const getColumns = (handleUpdateDevice, handleDeleteDevice) => {
       width: '20%',
       key: 'lastLoggedInAt',
       render: row => (
-        <span className="text-ele">
-          {moment(row.user && row.user.lastLoggedInAt).format('MMM DD, YYYY')}
-        </span>
+        <span className="text-ele">{moment(row?.user?.lastLoggedInAt).format('MMM DD, YYYY')}</span>
       ),
     },
     {

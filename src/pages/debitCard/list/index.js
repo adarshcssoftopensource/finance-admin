@@ -97,12 +97,12 @@ const Index = ({ dispatch, debitCards, router: { location } }) => {
   }
 
   useEffect(() => {
-    if (debitCards && debitCards.debitCards && debitCards.debitCards.data) {
+    if (debitCards?.debitCards?.data?.meta) {
       const { meta } = debitCards.debitCards.data
-      const debitCardData = debitCards.debitCards.data.debitCards
-      setCurrent(meta.pageNo)
-      setPageSize(meta.pageSize)
-      setTotal(meta.total)
+      const debitCardData = debitCards.debitCards.data.debitCards || []
+      setCurrent(meta.pageNo || 1)
+      setPageSize(meta.pageSize || 100)
+      setTotal(meta.total || debitCardData.length)
       setData(debitCardData)
       setSelectedWallets([])
       setIsWalletSelected(false)

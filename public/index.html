@@ -3,6 +3,11 @@
 
 <head>
   <meta charset="utf-8" />
+  <script>
+    if (typeof window.process === 'undefined') {
+      window.process = { env: {} };
+    }
+  </script>
   <title>Finance Admin</title>
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon/favicon-32x32.png" />

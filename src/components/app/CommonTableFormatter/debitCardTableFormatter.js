@@ -17,10 +17,10 @@ const getColumns = onDeleteWallet => {
       },
       render: business => (
         <span className="d-flex align-items-center">
-          <CopyToClipboard value={business.id} />
+          <CopyToClipboard value={business?.id || business?._id || ''} />
           <span className="text-ele">
-            <Link className="pl-1" to={`/business/view/${business.id}`}>
-              {business.organizationName}
+            <Link className="pl-1" to={`/business/view/${business?.id || business?._id || ''}`}>
+              {business?.organizationName || '—'}
             </Link>
           </span>
         </span>

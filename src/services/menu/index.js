@@ -5,7 +5,7 @@ export default async function getMenuData() {
     {
       title: 'Dashboard',
       key: 'dashboard',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-home',
       url: '/dashboard',
     },
     {
@@ -17,7 +17,7 @@ export default async function getMenuData() {
     {
       title: 'Merchant of Record',
       key: 'merchantRecord',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-shopping-bag',
       url: '/merchant-record',
     },
     {
@@ -29,43 +29,43 @@ export default async function getMenuData() {
     {
       title: 'Agents',
       key: 'agents',
-      icon: 'fe fe-users',
+      icon: 'fe fe-user-check',
       url: '/agents',
     },
     {
       title: 'Restricted Businesses',
       key: 'restrictBusiness',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-slash',
       url: '/restrict-business',
     },
     {
       title: 'Verification Center',
       key: 'verification-center',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-check-circle',
       url: '/verification-center',
     },
     {
       title: 'CRM',
       key: 'crm',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-message-square',
       url: '/crm',
     },
     {
       title: 'Logs',
       key: 'logs',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-terminal',
       url: '/logs',
     },
     {
       title: 'Push Notifications',
       key: 'push-notifications',
-      icon: 'fe fe-briefcase',
+      icon: 'fe fe-bell',
       url: '/push-notifications',
     },
     {
       title: 'Onboarding Review ',
       key: 'onboardingReview',
-      icon: 'fe fe-dollar-sign',
+      icon: 'fe fe-clipboard',
       url: '/onboardingreview',
     },
     {
@@ -89,7 +89,7 @@ export default async function getMenuData() {
     {
       title: 'Subscriptions',
       key: 'subscriptions',
-      icon: 'fe fe-package',
+      icon: 'fe fe-repeat',
       url: '/subscriptions',
     },
     {
@@ -107,7 +107,7 @@ export default async function getMenuData() {
     {
       title: 'Invoices',
       key: 'Invoices',
-      icon: 'fe fe-layout',
+      icon: 'fe fe-file-text',
       url: '/invoices',
     },
     {
@@ -125,13 +125,13 @@ export default async function getMenuData() {
     {
       title: 'Refunds',
       key: 'refunds',
-      icon: 'fe fe-dollar-sign',
+      icon: 'fe fe-rotate-ccw',
       url: '/refunds',
     },
     {
       title: 'Payouts',
       key: 'payouts',
-      icon: 'fe fe-dollar-sign',
+      icon: 'fe fe-send',
       url: '/payouts',
     },
     {
@@ -222,7 +222,7 @@ export default async function getMenuData() {
     {
       title: 'Countries',
       key: 'country',
-      icon: 'fe fe-zap',
+      icon: 'fe fe-globe',
       url: '/countries',
     },
     // {

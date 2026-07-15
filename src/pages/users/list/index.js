@@ -108,7 +108,7 @@ const Index = ({ dispatch, allUsers: { allUsers }, router: { location } }) => {
   ])
 
   useEffect(() => {
-    if (allUsers && allUsers.data && allUsers.data.meta) {
+    if (allUsers?.data?.meta) {
       const { meta } = allUsers.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

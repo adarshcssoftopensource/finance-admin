@@ -59,7 +59,7 @@ const Index = ({ dispatch, payouts: { payouts }, router: { location } }) => {
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (payouts && payouts.data) {
+    if (payouts?.data?.meta) {
       const { meta } = payouts.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

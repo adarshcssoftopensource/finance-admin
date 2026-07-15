@@ -60,7 +60,7 @@ const Transactions = ({ data, debitCards, dispatch, router: { location } }) => {
   const splitId = () => location.pathname.split('/debit-card-wallets/')[1]
 
   useEffect(() => {
-    if (debitCards && debitCards.walletTransactions && debitCards.walletTransactions.data) {
+    if (debitCards?.walletTransactions?.data?.meta) {
       const { meta, transactions } = debitCards.walletTransactions.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

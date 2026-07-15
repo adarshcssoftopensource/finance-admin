@@ -3,7 +3,7 @@ import getMenuData, { getMenuItemCount } from 'services/menu'
 import store from 'store'
 
 export function* GET_DATA() {
-  const countData = yield call(getMenuItemCount)
+  const countData = (yield call(getMenuItemCount)) || {}
   let menuData = yield call(getMenuData)
 
   // Reorder menu based on local storage
@@ -28,10 +28,11 @@ export function* GET_DATA() {
   }
 
   menuData = menuData.map(value => {
-    if (countData[value.key]) {
+    const rawCount = countData && countData[value.key]
+    if (rawCount != null && (typeof rawCount === 'number' || typeof rawCount === 'string')) {
       return {
         ...value,
-        count: countData[value.key],
+        count: rawCount,
       }
     }
     return value

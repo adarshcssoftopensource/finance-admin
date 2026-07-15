@@ -8,11 +8,12 @@ export function* FETCH_ALL_WEBHOOK_LOGS({ payload }) {
   yield put({ type: actions.SET_WEBHOOK_LOADING, payload: true })
 
   const response = yield call(Services.fetchWebhookLogs, query)
+  const logs = Array.isArray(response?.logs) ? response.logs : []
 
   if (response?.success) {
     yield put({
       type: actions.SET_WEBHOOK_LOGS,
-      payload: { data: response.logs, meta: { total: response.total || response.logs.length } },
+      payload: { data: logs, meta: { total: response.total || logs.length } },
     })
   } else {
     yield put({ type: actions.SET_WEBHOOK_LOADING, payload: false })
@@ -25,11 +26,12 @@ export function* FETCH_ALL_ERROR_LOGS({ payload }) {
   yield put({ type: actions.SET_ERROR_LOADING, payload: true })
 
   const response = yield call(Services.fetchErrorLogs, query)
+  const logs = Array.isArray(response?.logs) ? response.logs : []
 
   if (response?.success) {
     yield put({
       type: actions.SET_ERROR_LOGS,
-      payload: { data: response.logs, meta: { total: response.total || response.logs.length } },
+      payload: { data: logs, meta: { total: response.total || logs.length } },
     })
   } else {
     yield put({ type: actions.SET_ERROR_LOADING, payload: false })

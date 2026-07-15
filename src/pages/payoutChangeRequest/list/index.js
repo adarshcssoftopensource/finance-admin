@@ -68,7 +68,7 @@ const Index = ({
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (payoutChangeRequests && payoutChangeRequests.data) {
+    if (payoutChangeRequests?.data?.meta) {
       const { meta } = payoutChangeRequests.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

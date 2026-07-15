@@ -143,11 +143,11 @@ const PayByBankProvider = ({ payAsBank, businessId, payByBankStatus }) => {
           </div>
         </div>
 
-        {([...payAsBank?.bankAccounts] || [])?.length ? (
+        {(payAsBank?.bankAccounts || []).length ? (
           <div className="col-6 pl-0">
             <div className="table-responsive">
               <Collapse className="mt-2 gap-5" defaultActiveKey={['1']}>
-                {([...payAsBank?.bankAccounts] || []).map((account, index) => (
+                {(payAsBank?.bankAccounts || []).map((account, index) => (
                   <Collapse.Panel header={`Bank Account ${index + 1}`} key={index + 1} ope>
                     <table className="table table-borderless">
                       <tbody>

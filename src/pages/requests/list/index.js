@@ -84,7 +84,7 @@ const Index = ({
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (allRequests && allRequests.data) {
+    if (allRequests?.data?.meta) {
       const { meta } = allRequests.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

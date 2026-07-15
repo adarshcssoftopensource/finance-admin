@@ -2,7 +2,7 @@ import apiClient from 'services/axios'
 
 export async function fetchAllBusiness({ qryString }) {
   return apiClient
-    .get(`${process.env.REACT_APP_API_URL}/businesses?${qryString}`)
+    .get(`businesses?${qryString || ''}`)
     .then(response => {
       return response.data
     })

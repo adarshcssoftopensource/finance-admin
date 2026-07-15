@@ -57,7 +57,7 @@ const getColumns = () => {
       key: 'customer.firstName',
       render: customer => (
         <span className="text-ele">
-          {customer.firstName} {customer.lastName}
+          {customer?.firstName || ''} {customer?.lastName || ''}
         </span>
       ),
     },

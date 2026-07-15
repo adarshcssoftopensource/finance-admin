@@ -35,8 +35,10 @@ const getColumns = () => {
       key: 'businessName',
       render: row => (
         <span className="text-ele">
-          {row.business && (
-            <Link to={`/business/view/${row.business.id}`}>{row.business.organizationName}</Link>
+          {row?.business && (
+            <Link to={`/business/view/${row?.business?.id}`}>
+              {row?.business?.organizationName}
+            </Link>
           )}
         </span>
       ),

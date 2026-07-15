@@ -176,20 +176,21 @@ const pobStatus = row => {
   return <span className={`font-size-12 badge badge-${statusObj.class}`}>{statusObj.status}</span>
 }
 
-const prefix = `${process.env.REACT_APP_CDN_URL}/static/web-assets`
+const prefix = `${process.env.REACT_APP_CDN_URL || ''}/static/web-assets`
 
 export const providerIcons = (type = '') => {
-  const normalizedType = type.toLowerCase().replace('_ach', '')
+  const normalizedType = (type || '').toLowerCase().replace('_ach', '')
 
+  // Prefer local /icons assets so static demo works without CDN
   const Icons = {
     wepay: `${prefix}/wepay.png`,
-    paypal: `${prefix}/paypal.png`,
+    paypal: `/icons/paypal.png`,
     tilled: `${prefix}/paysafe.png`,
     checkout: `/icons/checkout.jpeg`,
     stripe: `/icons/stripe.png`,
     bluesnap: `${prefix}/bluesnap.png`,
     adyen: `${prefix}/adyen.png`,
-    payarc: `${prefix}/payarc.png`,
+    payarc: `/icons/payarc.png`,
     rapyd: `${prefix}/rapyd.png`,
     justifi: `/icons/justifi.png`,
     astra: `/icons/bank.svg`,
@@ -201,7 +202,17 @@ export const providerIcons = (type = '') => {
   const icon = Icons[normalizedType]
   if (!icon) return null
 
-  return <img height="25" src={icon} alt={normalizedType} />
+  return (
+    <img
+      height="22"
+      src={icon}
+      alt={normalizedType}
+      style={{ objectFit: 'contain', verticalAlign: 'middle', maxWidth: 72 }}
+      onError={e => {
+        e.currentTarget.style.display = 'none'
+      }}
+    />
+  )
 }
 
 export const riskLevelIcons = type => {

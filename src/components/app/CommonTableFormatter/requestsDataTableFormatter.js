@@ -24,8 +24,10 @@ const getColumns = (onRequestApprove, onRequestReject, onEditMessageClick) => {
             )}
           </Tooltip>
           <CopyToClipboard value={row._id} textMessage="Request ID copied to clipboard" />
-          {row.business && (
-            <Link to={`/business/view/${row.business.id}`}>{row.business.organizationName}</Link>
+          {row?.business && (
+            <Link to={`/business/view/${row?.business?.id}`}>
+              {row?.business?.organizationName}
+            </Link>
           )}
         </span>
       ),
@@ -201,7 +203,7 @@ const renderData = row => {
     return (
       <Tag color="blue" key={row._id + '_message'}>
         <strong style={{ fontSize: '14px' }}>
-          {row.requestData?.title ? `[${row.requestData.title}] ` : ''}
+          {row.requestData?.title ? `[${row.requestData?.title}] ` : ''}
           {row.requestData?.message}
         </strong>
       </Tag>
@@ -212,13 +214,13 @@ const renderData = row => {
     return (
       <Tag color="red" key={row._id + '_tx_review'}>
         <strong style={{ fontSize: '14px' }}>
-          Amount: {row.requestData.amount} (ID: {row.requestData.paymentId})
+          Amount: {row?.requestData?.amount} (ID: {row?.requestData?.paymentId})
         </strong>
       </Tag>
     )
   }
 
-  return row?.data?.split('||').map((value, index) => (
+  return (row?.data || '').split('||').map((value, index) => (
     <Tag color="blue" key={row._id + '_tags_' + index}>
       <strong style={{ fontSize: '14px' }}>{value}</strong>
     </Tag>

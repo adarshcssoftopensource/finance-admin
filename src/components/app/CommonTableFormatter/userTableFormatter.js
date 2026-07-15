@@ -343,7 +343,7 @@ export const getCRMColumns = () => {
           to={`/business?userId=${row._id}&userName=${row.firstName}`}
           className="kit__utils__link"
         >
-          <span className="text-ele">{row.businesses.length}</span>
+          <span className="text-ele">{row?.businesses?.length}</span>
         </Link>
       ),
     },

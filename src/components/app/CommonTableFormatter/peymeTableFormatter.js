@@ -28,8 +28,8 @@ const getColumns = (changeStatus, type) => {
       dataIndex: '',
       key: 'publicView.shareableLinkUrl',
       render: row => (
-        <a href={row.publicView.shareableLinkUrl || '/'} target="_blank" className="text-ele">
-          {row.publicView.shareableLinkUrl || '-'}
+        <a href={row?.publicView?.shareableLinkUrl || '/'} target="_blank" className="text-ele">
+          {row?.publicView?.shareableLinkUrl || '-'}
         </a>
       ),
     },

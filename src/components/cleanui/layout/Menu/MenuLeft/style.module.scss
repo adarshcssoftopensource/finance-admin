@@ -32,16 +32,17 @@
 
     .logoWordmark {
       display: block;
-      height: 28px;
+      height: 32px;
       width: auto;
-      max-width: 100%;
+      max-width: 180px;
       object-fit: contain;
+      object-position: left center;
     }
 
     .logoIcon {
       display: block;
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       object-fit: contain;
       border-radius: 6px;
     }

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NProgress from 'nprogress'
 import { Helmet } from 'react-helmet'
@@ -46,15 +46,10 @@ const Layout = ({ user, children, location: { pathname, search } }) => {
   const isAuthLayout = getLayout() === 'auth'
 
   const BootstrappedLayout = () => {
-    // show loader when user in check authorization process, not authorized yet and not on login pages
+    // Static demo: no auth redirect to /auth/login — render app layout
     if (isUserLoading && !isUserAuthorized && !isAuthLayout) {
       return null
     }
-    // redirect to login page if current is not login page and user not authorized
-    if (!isAuthLayout && !isUserAuthorized) {
-      return <Redirect to="/auth/login" />
-    }
-    // in other case render previously set layout
     return <Container>{children}</Container>
   }
 

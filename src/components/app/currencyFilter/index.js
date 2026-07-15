@@ -32,8 +32,28 @@ const Index = ({ handleChange, dispatch, utility: { currency }, value }) => {
   }, [currency])
 
   const setUniqueCurrency = currencyData => {
-    const getCurrencies = currencyData.map(arr => arr.currencies[0])
-    const setUniqCurrencies = [...new Map(getCurrencies.map(item => [item['code'], item])).values()]
+    const list = Array.isArray(currencyData)
+      ? currencyData
+      : Array.isArray(currencyData?.currencies)
+      ? currencyData.currencies
+      : Array.isArray(currencyData?.data)
+      ? currencyData.data
+      : []
+
+    const getCurrencies = list
+      .map(arr => {
+        if (arr?.currencies?.[0]) return arr.currencies[0]
+        if (arr?.code) return arr
+        return null
+      })
+      .filter(Boolean)
+      .map(item => ({
+        code: item.code,
+        displayName: item.displayName || item.name || item.code,
+        symbol: item.symbol || '',
+      }))
+
+    const setUniqCurrencies = [...new Map(getCurrencies.map(item => [item.code, item])).values()]
     setCurrencies(setUniqCurrencies)
   }
 

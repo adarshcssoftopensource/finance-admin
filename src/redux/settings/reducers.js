@@ -42,6 +42,9 @@ const initialState = {
     isSquaredBorders: false,
     isBorderless: false,
   }),
+  // Always use local brand assets (ignore stale localStorage CDN/logo overrides)
+  logo: mainLogo,
+  logoShort: financeIcon,
 }
 
 export default function settingsReducer(state = initialState, action) {

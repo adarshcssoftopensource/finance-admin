@@ -104,12 +104,12 @@ export const getProviderIcons = (name, type) => {
     paypal: `${Providerprefixs}/paypal.png`,
     tilled: `${Providerprefixs}/paysafe.png`,
     checkout: `${Providerprefixs}/checkout.png`,
-    stripe: `${Providerprefixs}/stripe.png`,
+    stripe: `/icons/stripe.png`,
     bluesnap: `${Providerprefixs}/bluesnap.png`,
     adyen: `${Providerprefixs}/adyen.png`,
-    payarc: `${Providerprefixs}/payarc.png`,
+    payarc: `/icons/payarc.png`,
     rapyd: `${Providerprefixs}/rapyd.png`,
-    justifi: `${Providerprefixs}/justifi-logo.png`,
+    justifi: `/icons/justifi.png`,
     ecrypt: `${Providerprefixs}/ecrypt-logo.svg`,
     orum: `${Providerprefixs}/bank-orum.svg`,
     unknown: `${Providerprefixs}/cc-unknown.png`,
@@ -137,7 +137,10 @@ export const getProviderIcons = (name, type) => {
 }
 
 export const renderPaymentMethod = row => {
-  if (row && row.bank && row.methodToDisplay === 'bank') {
+  if (!row) {
+    return <span className="badge badge-default">Manual</span>
+  }
+  if (row.bank && row.methodToDisplay === 'bank') {
     return <span>{paymentsIcons('bank')}</span>
   } else if (row.methodToDisplay === 'card') {
     return (

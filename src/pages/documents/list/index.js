@@ -69,7 +69,7 @@ const Index = ({
   }, [fetchDocuments])
 
   useEffect(() => {
-    if (documents && documents.data) {
+    if (documents?.data?.meta) {
       const { meta } = documents.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

@@ -34,7 +34,7 @@ const Index = ({ dispatch, subscriptions: { payments }, subscriptionId }) => {
   }, [current, initFetch, pageSize, subscriptionId])
 
   useEffect(() => {
-    if (payments && payments.data) {
+    if (payments?.data?.meta) {
       const { meta } = payments.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

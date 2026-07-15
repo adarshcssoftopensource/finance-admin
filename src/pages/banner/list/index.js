@@ -110,7 +110,7 @@ const Index = ({
   }, [location.state])
 
   useEffect(() => {
-    if (allBannerTargets && allBannerTargets.data && allBannerTargets.data.meta) {
+    if (allBannerTargets?.data?.meta) {
       const { meta } = allBannerTargets.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)
@@ -120,7 +120,7 @@ const Index = ({
   }, [allBannerTargets])
 
   useEffect(() => {
-    if (allBanner && allBanner.data && allBanner.data.meta) {
+    if (allBanner?.data?.meta) {
       const { meta } = allBanner.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

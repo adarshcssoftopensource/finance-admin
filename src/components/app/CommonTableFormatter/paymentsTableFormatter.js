@@ -80,11 +80,11 @@ const getColumns = () => [
     key: 'customer.firstName',
     render: customer => (
       <span className="text-ele">
-        {customer.customerName
+        {customer?.customerName
           ? customer.customerName
-          : customer.firstName.includes(customer.lastName)
+          : (customer?.firstName || '').includes(customer?.lastName)
           ? customer.firstName
-          : `${customer.firstName} ${customer.lastName}`}
+          : `${customer?.firstName || ''} ${customer?.lastName || ''}`}
       </span>
     ),
   },

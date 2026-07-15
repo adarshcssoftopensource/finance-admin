@@ -24,8 +24,8 @@ const Index = ({ plans: { plans }, dispatch }) => {
 
   useEffect(() => {
     if (plans && plans.data) {
-      const plansData = plans.data.plans
-      const finalPlansData = plansData.filter(plan => plan.isActive)
+      const plansData = plans.data.plans || []
+      const finalPlansData = plansData.filter(plan => plan.isActive !== false)
       setData(finalPlansData)
     }
   }, [plans])

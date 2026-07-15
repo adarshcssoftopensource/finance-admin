@@ -11,22 +11,22 @@ export function* FETCH_ALL_PLANS() {
     },
   })
   const response = yield call(Services.fetchAllPlans)
-  if (!response.error) {
+  if (response && !response.error) {
     yield put({
       type: actions.SET_STATE,
       payload: {
         loading: false,
-        data: response.data,
+        data: response.data || response,
       },
     })
-  } else if (response.error) {
+  } else {
     yield put({
       type: actions.SET_STATE,
       payload: {
         loading: false,
       },
     })
-    Notification.showError(response.message)
+    Notification.showError((response && response.message) || 'Failed to fetch plans')
   }
 }
 

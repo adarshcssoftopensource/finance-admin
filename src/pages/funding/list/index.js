@@ -83,7 +83,7 @@ const FundingLinks = ({
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (fundingLinks && fundingLinks.data && fundingLinks.data.meta) {
+    if (fundingLinks?.data?.meta) {
       const { meta } = fundingLinks.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

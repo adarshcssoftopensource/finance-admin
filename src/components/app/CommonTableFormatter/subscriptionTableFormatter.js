@@ -32,9 +32,9 @@ const getColumns = showCancelConfirm => {
       },
       render: row => (
         <span className="text-ele">
-          {row.businessId && (
-            <Link to={`business/view/${row.businessId._id}`}>
-              {row.businessId.organizationName}
+          {row?.businessId && (
+            <Link to={`business/view/${row?.businessId?._id}`}>
+              {row?.businessId?.organizationName}
             </Link>
           )}
         </span>

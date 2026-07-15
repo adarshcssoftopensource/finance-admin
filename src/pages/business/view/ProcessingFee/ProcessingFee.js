@@ -138,6 +138,10 @@ const ProcessingFee = ({
   }, [businessRiskLevel])
 
   const handleProcessFeeList = async fees => {
+    if (!Array.isArray(fees)) {
+      setProcessingFeeList([])
+      return
+    }
     fees.forEach(ar => {
       if (ar.fee === undefined || Object.keys(ar.fee).length === 0) {
         ar.fee = { dynamic: 0, fixed: 0 }
@@ -242,7 +246,10 @@ const ProcessingFee = ({
         TemplatesList.length > 0 &&
         TemplatesList.map(item => {
           return (
-            <Menu.Item onClick={() => handleMenuClick(item, item?.templateName)}>
+            <Menu.Item
+              key={item?._id || item?.templateName}
+              onClick={() => handleMenuClick(item, item?.templateName)}
+            >
               {item?.templateName}
             </Menu.Item>
           )
@@ -255,6 +262,7 @@ const ProcessingFee = ({
       {RiskLevels.map(item => {
         return (
           <Menu.Item
+            key={item?.value || item?.label}
             onClick={() => {
               setRiskLevel(item.value)
               setRiskLevelLabel(item.label)

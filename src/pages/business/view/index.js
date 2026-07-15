@@ -206,7 +206,7 @@ const Index = ({
   }, [payments])
 
   useEffect(() => {
-    if (allUsers && allUsers.data && allUsers.data.meta) {
+    if (allUsers?.data?.meta) {
       const { meta } = allUsers.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)
@@ -217,7 +217,7 @@ const Index = ({
   }, [allUsers.data, allUsers.loading])
 
   useEffect(() => {
-    if (subscriptions && subscriptions.data && subscriptions.data.meta) {
+    if (subscriptions?.data?.meta) {
       const { meta } = subscriptions.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)
@@ -228,7 +228,7 @@ const Index = ({
   }, [subscriptions])
 
   useEffect(() => {
-    if (rewardEarnHistory && rewardEarnHistory.data && rewardEarnHistory.data.meta) {
+    if (rewardEarnHistory?.data?.meta) {
       const { meta } = rewardEarnHistory.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)
@@ -724,8 +724,8 @@ const Index = ({
                       <tr>
                         <td className="text-gray-6 pl-0 pb-0">Review Date</td>
                         <td className="pr-0 text-dark pb-0 text-right">
-                          {bizDetail?.legal?.bankProviderData.updatedAt
-                            ? formateDate(bizDetail?.legal?.bankProviderData.updatedAt)
+                          {bizDetail?.legal?.bankProviderData?.updatedAt
+                            ? formateDate(bizDetail.legal.bankProviderData.updatedAt)
                             : 'N/A'}
                         </td>
                       </tr>

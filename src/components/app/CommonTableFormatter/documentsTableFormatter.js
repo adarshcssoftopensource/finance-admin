@@ -25,7 +25,9 @@ const getColumns = confirmSubmittedDocument => {
       dataIndex: '',
       key: 'documentName',
       render: row => (
-        <span className="text-ele text-capitalize">{row.documentName.replaceAll('_', ' ')}</span>
+        <span className="text-ele text-capitalize">
+          {(row?.documentName || '').replaceAll('_', ' ') || '—'}
+        </span>
       ),
     },
     {

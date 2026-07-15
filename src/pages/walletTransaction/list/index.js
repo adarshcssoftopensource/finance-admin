@@ -90,7 +90,7 @@ const Index = ({ dispatch, debitCards, router: { location } }) => {
   ])
 
   useEffect(() => {
-    if (debitCards && debitCards.walletTransactions && debitCards.walletTransactions.data) {
+    if (debitCards?.walletTransactions?.data?.meta) {
       const { meta, transactions } = debitCards.walletTransactions.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)

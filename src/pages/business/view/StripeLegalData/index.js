@@ -30,7 +30,7 @@ const index = ({
         ) : (
           statement
         )}
-        {!editable && bizDetail.paymentSetting.isConnected && (
+        {!editable && bizDetail?.paymentSetting?.isConnected && (
           <EditOutlined className="cursor-pointer" onClick={onEditClick} />
         )}
       </div>

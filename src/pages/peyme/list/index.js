@@ -78,7 +78,7 @@ const Index = ({ dispatch, peyme: { peyme }, router: { location } }) => {
   }, [initFetch, location.search])
 
   useEffect(() => {
-    if (peyme && peyme.data && peyme.data.meta) {
+    if (peyme?.data?.meta) {
       const { meta } = peyme.data
       setCurrent(meta.pageNo)
       setPageSize(meta.pageSize)
