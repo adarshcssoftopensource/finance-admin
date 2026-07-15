@@ -48,17 +48,18 @@ const Index = ({ dispatch, allUsers: { allUsers }, router: { location } }) => {
     [dispatch],
   )
 
-  const prepareString = () => {
+  const prepareString = useCallback(() => {
+    const p = new URLSearchParams(location.search)
     return qs.stringify({
       pageNo: location.query.pageNo || current,
       pageSize: location.query.pageSize || pageSize,
-      isActive: params.get('isActive') || isActive,
-      keyword: params.get('keywords') || keyword,
-      startDate: params.get('startDate') || startDate,
-      endDate: params.get('endDate') || endDate,
+      isActive: p.get('isActive') || isActive,
+      keyword: p.get('keywords') || keyword,
+      startDate: p.get('startDate') || startDate,
+      endDate: p.get('endDate') || endDate,
       isBackground: true,
     })
-  }
+  }, [location.search, location.query, current, pageSize, isActive, keyword, startDate, endDate])
 
   // useEffect(() => {
   //   initFetch(
@@ -94,7 +95,17 @@ const Index = ({ dispatch, allUsers: { allUsers }, router: { location } }) => {
       setEndDate(params.get('endDate') || null)
       initFetch(prepareString())
     }
-  }, [initFetch, location.search])
+  }, [
+    initFetch,
+    location.search,
+    prepareString,
+    current,
+    pageSize,
+    isActive,
+    keyword,
+    startDate,
+    endDate,
+  ])
 
   useEffect(() => {
     if (allUsers && allUsers.data && allUsers.data.meta) {

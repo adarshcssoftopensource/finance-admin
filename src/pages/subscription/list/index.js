@@ -45,47 +45,76 @@ const Index = ({ dispatch, subscriptions: { subscriptions }, router: { location 
     [dispatch],
   )
 
-  useEffect(() => {
-    handleSubscriptionURL('status', 'Active')
-  }, [])
+  const handleSubscriptionURL = useCallback(
+    (type, value) => {
+      const p = new URLSearchParams(location.search)
+      p.set('pageNo', 1)
+      p.set('pageSize', location.query.pageSize || pageSize)
+      if (value) {
+        p.set(type, value)
+      } else {
+        p.delete(type)
+      }
+      history.push({ search: p.toString() })
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [location.search, pageSize, history],
+  )
 
-  useEffect(() => {
-    setKeyword(params.get('keywords') || null)
-    setIsTrial(params.get('isTrial') || '')
-    setNextInvoiceEndDate(params.get('nextInvoiceEndDate') || null)
-    setNextInvoiceStartDate(params.get('nextInvoiceStartDate') || null)
-    setUpcomingActivationEndDate(params.get('upcomingActivationEndDate') || null)
-    setUpcomingActivationStartDate(params.get('upcomingActivationStartDate') || null)
-    setEndDate(params.get('endDate') || null)
-    setStartDate(params.get('startDate') || null)
-    setStatus(params.get('status') || '')
-    initFetch(convertQrtString())
-  }, [
-    // current,
-    initFetch,
-    location.search,
-  ])
-
-  const convertQrtString = () => {
+  const convertQrtString = useCallback(() => {
+    const p = new URLSearchParams(location.search)
     const planIdStr = planId ? planId.toString() : null
     return qs.stringify({
       pageNo: location.query.pageNo || current,
       pageSize: location.query.pageSize || pageSize,
       isActive,
-      keyword: params.get('keywords') || keyword,
-      startDate: params.get('startDate') || startDate,
-      endDate: params.get('endDate') || endDate,
-      nextInvoiceStartDate: params.get('nextInvoiceStartDate') || nextInvoiceStartDate,
-      nextInvoiceEndDate: params.get('nextInvoiceEndDate') || nextInvoiceEndDate,
+      keyword: p.get('keywords') || keyword,
+      startDate: p.get('startDate') || startDate,
+      endDate: p.get('endDate') || endDate,
+      nextInvoiceStartDate: p.get('nextInvoiceStartDate') || nextInvoiceStartDate,
+      nextInvoiceEndDate: p.get('nextInvoiceEndDate') || nextInvoiceEndDate,
       upcomingActivationStartDate:
-        params.get('upcomingActivationStartDate') || upcomingActivationStartDate,
-      upcomingActivationEndDate:
-        params.get('upcomingActivationEndDate') || upcomingActivationEndDate,
-      status: params.get('status') || status,
-      planId: params.get('planId') || planIdStr,
-      isTrial: params.get('isTrial') || isTrial,
+        p.get('upcomingActivationStartDate') || upcomingActivationStartDate,
+      upcomingActivationEndDate: p.get('upcomingActivationEndDate') || upcomingActivationEndDate,
+      status: p.get('status') || status,
+      planId: p.get('planId') || planIdStr,
+      isTrial: p.get('isTrial') || isTrial,
     })
-  }
+  }, [
+    location.search,
+    location.query,
+    current,
+    pageSize,
+    isActive,
+    keyword,
+    startDate,
+    endDate,
+    nextInvoiceStartDate,
+    nextInvoiceEndDate,
+    upcomingActivationStartDate,
+    upcomingActivationEndDate,
+    status,
+    planId,
+    isTrial,
+  ])
+
+  useEffect(() => {
+    handleSubscriptionURL('status', 'Active')
+  }, [handleSubscriptionURL])
+
+  useEffect(() => {
+    const p = new URLSearchParams(location.search)
+    setKeyword(p.get('keywords') || null)
+    setIsTrial(p.get('isTrial') || '')
+    setNextInvoiceEndDate(p.get('nextInvoiceEndDate') || null)
+    setNextInvoiceStartDate(p.get('nextInvoiceStartDate') || null)
+    setUpcomingActivationEndDate(p.get('upcomingActivationEndDate') || null)
+    setUpcomingActivationStartDate(p.get('upcomingActivationStartDate') || null)
+    setEndDate(p.get('endDate') || null)
+    setStartDate(p.get('startDate') || null)
+    setStatus(p.get('status') || '')
+    initFetch(convertQrtString())
+  }, [initFetch, location.search, convertQrtString])
 
   useEffect(() => {
     if (subscriptions && subscriptions.data) {
@@ -98,22 +127,12 @@ const Index = ({ dispatch, subscriptions: { subscriptions }, router: { location 
   }, [subscriptions])
 
   const onPaginationChange = async (currentPage, pagesize) => {
-    params.set('pageNo', currentPage)
-    params.set('pageSize', pagesize)
-    history.push({ search: params.toString() })
+    const p = new URLSearchParams(location.search)
+    p.set('pageNo', currentPage)
+    p.set('pageSize', pagesize)
+    history.push({ search: p.toString() })
     await setCurrent(currentPage)
     await setPageSize(pagesize)
-  }
-
-  const handleSubscriptionURL = (type, value) => {
-    params.set('pageNo', 1)
-    params.set('pageSize', location.query.pageSize || pageSize)
-    if (value) {
-      params.set(type, value)
-    } else {
-      params.delete(type)
-    }
-    history.push({ search: params.toString() })
   }
 
   const handleDateRangeURL = (fromDateKey, fromDate, toDateKey, toDate) => {
